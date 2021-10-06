@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+  <h1>Cписок писем</h1>
+  <div>
+    {% for item in mails %}
+     
+      <div class="card mb-3" style="max-width: 45rem;">
+        <div class="card-header">
+          <p>{{ item.name }}, {{ item.email }} | Отправлено: {{ item.created_at|date:'Y-M-d в H:i' }}</p>
+        </div>
+        <div class="card-body" >
+          <h5 class="card-title">Тема: {{ item.title }}</h5>
+          <p class="card-text" style="text-overflow: ellipsis; overflow:hidden; height: 3em; ">{{ item.text }}</p>
+          <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Открыть письмо</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+<div class="container mt-5"></div>
+
+{% include "inc/_pagination.html" %}
+    
+{% endblock %}
