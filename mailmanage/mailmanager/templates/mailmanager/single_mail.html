@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+<div class="container mt-3">
+  <div>
+    
+      <div class="card mb-3" style="max-width: 60rem;">
+        <div class="card-header">
+          <p>{{ item.name }}, {{ item.email }} | Отправлено: {{ item.created_at|date:'Y-M-d в H:i' }}</p>
+        </div>
+        <div class="card-body" >
+          <h3 class="card-title">Тема: {{ item.title }}</h3>
+          <p class="card-text">{{ item.text }}</p>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+
+
+{% endblock %}
